@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from './config/firebase';
@@ -14,12 +15,37 @@ function App() {
   const [gratitude, setGratitude] = useState('');
   const [gratitudes, setGratitudes] = useState<Gratitude[]>([]);
   const [selectedFlower, setSelectedFlower] = useState<Gratitude | null>(null);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   const flowerEmojis = ['🌸', '🌺', '🌹', '🌷', '🌻', '🌼', '💐', '🪷'];
 
   useEffect(() => {
     fetchGratitudes();
+    
+    // Update time every second
+    const timer = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
+
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('id-ID', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('id-ID', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  };
 
   const fetchGratitudes = async () => {
     const q = query(collection(db, 'gratitudes'), orderBy('timestamp', 'desc'));
@@ -54,20 +80,23 @@ function App() {
     <div className="min-h-screen bg-gradient-to-b from-garden-purple to-garden-pink p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-cute text-pink-600 mb-2">
+          <h1 className="text-4xl font-cute text-pink-600 mb-2">
             🌸 Gratitude Garden 🌸
           </h1>
           <p className="text-2xl font-cute text-pink-500 animate-bounce">
             Punya Amelllll Comelll
           </p>
+          <div className="mt-4 text-pink-700 font-cute">
+            <p className="text-xl">{formatDate(currentDateTime)}</p>
+            <p className="text-2xl font-semibold">{formatTime(currentDateTime)}</p>
+          </div>
         </div>
 
         <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg mb-8">
           <div className="text-center mb-6">
             <p className="text-xl text-pink-700 font-cute leading-relaxed">
               "Setiap rasa syukur yang kamu tanam hari ini,
-              akan tumbuh menjadi kebahagiaan yang mekar di masa depan."<br/>
-              
+              akan tumbuh menjadi kebahagiaan yang mekar di masa depan."
             </p>
           </div>
           <form onSubmit={handleSubmit}>
@@ -104,6 +133,16 @@ function App() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 mb-8 text-center">
+          <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-4 shadow-lg inline-block">
+            <p className="text-lg text-pink-700 font-cute">
+              ✨ © {currentDateTime.getFullYear()} ✨<br/>
+              <span className="font-semibold">Gratitude Garden by Duyyy</span><br/>
+              <span className="text-sm">With 💖 and Gratitude</span>
+            </p>
+          </div>
         </div>
 
         {selectedFlower && (
