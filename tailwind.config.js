@@ -12,7 +12,7 @@ export default {
         'garden-green': '#98FB98',
       },
       fontFamily: {
-        'cute': ['Comic Sans MS', 'cursive'],
+        'comic': ['Comic Sans MS', 'Comic Sans', 'cursive'],
       },
     },
   },

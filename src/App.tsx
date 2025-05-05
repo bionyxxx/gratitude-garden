@@ -80,13 +80,13 @@ function App() {
     <div className="min-h-screen bg-gradient-to-b from-garden-purple to-garden-pink p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-cute text-pink-600 mb-2">
+          <h1 className="text-4xl font-comic text-pink-600 mb-2">
             🌸 Gratitude Garden 🌸
           </h1>
-          <p className="text-2xl font-cute text-pink-500 animate-bounce">
+          <p className="text-2xl font-comic text-pink-500 animate-bounce">
             Punya Amelllll Comelll
           </p>
-          <div className="mt-4 text-pink-700 font-cute">
+          <div className="mt-4 text-pink-700 font-comic">
             <p className="text-xl">{formatDate(currentDateTime)}</p>
             <p className="text-2xl font-semibold">{formatTime(currentDateTime)}</p>
           </div>
@@ -94,7 +94,7 @@ function App() {
 
         <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg mb-8">
           <div className="text-center mb-6">
-            <p className="text-xl text-pink-700 font-cute leading-relaxed">
+            <p className="text-xl text-pink-700 font-comic leading-relaxed">
               "Setiap rasa syukur yang kamu tanam hari ini,
               akan tumbuh menjadi kebahagiaan yang mekar di masa depan."
             </p>
@@ -106,11 +106,11 @@ function App() {
                 value={gratitude}
                 onChange={(e) => setGratitude(e.target.value)}
                 placeholder="Tulis hal yang kamu syukuri hari ini..."
-                className="flex-1 p-4 rounded-xl border-2 border-garden-pink focus:outline-none focus:border-pink-400 bg-white/90 text-lg text-pink-700 placeholder-pink-300"
+                className="flex-1 p-4 rounded-xl border-2 border-garden-pink focus:outline-none focus:border-pink-400 bg-white/90 text-lg text-pink-700 placeholder-pink-300 font-comic"
               />
               <button
                 type="submit"
-                className="px-8 py-4 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg font-cute text-lg"
+                className="px-8 py-4 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg font-comic text-lg"
               >
                 Tanam 🌱
               </button>
@@ -137,7 +137,7 @@ function App() {
 
         <div className="mt-12 mb-8 text-center">
           <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-4 shadow-lg inline-block">
-            <p className="text-lg text-pink-700 font-cute">
+            <p className="text-lg text-pink-700 font-comic">
               ✨ © {currentDateTime.getFullYear()} ✨<br/>
               <span className="font-semibold">by Duyyy</span><br/>
               <span className="text-sm">With 💖 and Gratitude</span>
@@ -155,12 +155,12 @@ function App() {
               <div className="text-7xl text-center mb-6 animate-bounce">
                 {selectedFlower.flowerEmoji}
               </div>
-              <p className="text-2xl text-pink-700 mb-8 text-center font-cute leading-relaxed">
+              <p className="text-2xl text-pink-700 mb-8 text-center font-comic leading-relaxed">
                 {selectedFlower.message}
               </p>
               <button
                 onClick={() => setSelectedFlower(null)}
-                className="w-full py-4 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg font-cute text-lg"
+                className="w-full py-4 bg-gradient-to-r from-pink-400 to-pink-500 text-white rounded-xl hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg font-comic text-lg"
               >
                 Close 💝
               </button>
