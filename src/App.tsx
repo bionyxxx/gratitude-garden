@@ -139,7 +139,7 @@ function App() {
           <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-4 shadow-lg inline-block">
             <p className="text-lg text-pink-700 font-cute">
               ✨ © {currentDateTime.getFullYear()} ✨<br/>
-              <span className="font-semibold">Gratitude Garden by Duyyy</span><br/>
+              <span className="font-semibold">by Duyyy</span><br/>
               <span className="text-sm">With 💖 and Gratitude</span>
             </p>
           </div>
